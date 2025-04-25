@@ -63,7 +63,7 @@ export function createTicks(parent: HTMLElement, config: PeakMeterConfig): Array
     tickDiv.style.position = 'absolute';
     tickDiv.style.color = nordic && (t+scaleOffsetValue) >= 6 ? 'red' : tickColor;
     tickDiv.style.fontSize = `${fontSize}px`;
-    tickDiv.textContent = nordic && t === -9 ? 'TEST' : (t+scaleOffsetValue).toString();
+    tickDiv.textContent = nordic && t === -18 ? 'TEST' : (t+scaleOffsetValue).toString();
     const percentInRange = ((dbRangeMax - t) / (dbRangeMax - dbRangeMin)) * 100;
     if (vertical) {
       tickDiv.style.top = `calc(${percentInRange}% - ${fontSize / 2}px)`;
