@@ -46,7 +46,7 @@ export function createTicks(parent: HTMLElement, config: PeakMeterConfig): Array
   const ticksDiv = document.createElement('div');
   ticksDiv.style.position = 'relative';
   const nordic = scale === 'nordic'
-  const scaleOffsetValue = nordic ? 9 : scaleOffset
+  const scaleOffsetValue = nordic ? 18 : scaleOffset
   if (vertical) {
     ticksDiv.style.height = `calc(100% - ${fontSize * verticalLabelHeight}px)`;
     ticksDiv.style.width = nordic ? `${fontSize * 3}px` : `${fontSize * verticalTickWidth}px`;
