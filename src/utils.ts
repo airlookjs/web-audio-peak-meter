@@ -17,7 +17,7 @@ export function dbTicks(min: number, max: number, tickSize: number, scale: strin
     const nordic = scale == 'nordic';
     if (i % tickSize === 0) {
       ticks.push(i);
-    } else if(nordic && i == 9-18){
+    } else if(nordic && i == 9-20){
       ticks.push(i);
     }
   }
