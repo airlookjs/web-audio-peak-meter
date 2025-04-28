@@ -11,10 +11,13 @@ export function findAudioProcBufferSize(numSamplesIn: number): number {
     Math.abs(b - numSamplesIn) < Math.abs(a - numSamplesIn) ? b : a));
 }
 
-export function dbTicks(min: number, max: number, tickSize: number): number[] {
+export function dbTicks(min: number, max: number, tickSize: number, scale: string): number[] {
   const ticks = [];
   for (let i = Math.floor(min) + 1; i <= max; i += 1) {
+    const nordic = scale == 'nordic';
     if (i % tickSize === 0) {
+      ticks.push(i);
+    } else if(nordic && i == 6+18){
       ticks.push(i);
     }
   }

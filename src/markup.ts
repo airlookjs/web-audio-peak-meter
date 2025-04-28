@@ -42,7 +42,7 @@ export function createContainerDiv(parent: HTMLElement, config: PeakMeterConfig)
 
 export function createTicks(parent: HTMLElement, config: PeakMeterConfig): Array<HTMLElement> {
   const { dbRangeMin, dbRangeMax, dbTickSize, fontSize, borderSize, tickColor, vertical, scale, scaleOffset } = config;
-  const ticks = dbTicks(dbRangeMin, dbRangeMax, dbTickSize);
+  const ticks = dbTicks(dbRangeMin, dbRangeMax, dbTickSize, scale);
   const ticksDiv = document.createElement('div');
   ticksDiv.style.position = 'relative';
   const nordic = scale === 'nordic'
@@ -63,10 +63,10 @@ export function createTicks(parent: HTMLElement, config: PeakMeterConfig): Array
     tickDiv.style.position = 'absolute';
     tickDiv.style.color = nordic && (t+scaleOffsetValue) >= 6 ? 'red' : tickColor;
     tickDiv.style.fontSize = `${fontSize}px`;
-    tickDiv.textContent = nordic && t === -18 ? 'TEST' : (t+scaleOffsetValue).toString();
+    tickDiv.textContent = nordic && t === -18 ? 'Test' : (t+scaleOffsetValue).toString();
     const percentInRange = ((dbRangeMax - t) / (dbRangeMax - dbRangeMin)) * 100;
     if (vertical) {
-      tickDiv.style.top = `calc(${percentInRange}% - ${fontSize / 2}px)`;
+      tickDiv.style.top = `calc(${percentInRange}% - ${fontSize}px)`;
       tickDiv.style.right = `${borderSize}px`;
       tickDiv.style.textAlign = 'right';
     } else {
