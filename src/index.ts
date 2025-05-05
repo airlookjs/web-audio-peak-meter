@@ -112,7 +112,7 @@ export class WebAudioPeakMeter {
           textLabel.textContent = '-∞';
         } else {
           const nordic = scale === 'nordic'
-          const scaleOffsetValue = nordic ? 18 : scaleOffset
+          const scaleOffsetValue = nordic ? 9 : scaleOffset
           const heldPeak = dbFromFloat(this.heldPeaks[i]) + scaleOffsetValue;
           textLabel.textContent = heldPeak.toFixed(1);
         }
