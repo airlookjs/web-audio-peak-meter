@@ -15,7 +15,7 @@ export function iecIvalues(input:Float32Array[], channelStates:IecIChannelState[
     const _w1 = attackFilterCoefficient1;
     const _w2 = attackFilterCoefficient2;
 
-    for (let j = 0; j < channel.length; j += 4) {
+    for (let j = channel.length; j >= 0; j -= 4) {
       z1 *= releaseFilterCoefficient;
       z2 *= releaseFilterCoefficient;
 
