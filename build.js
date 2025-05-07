@@ -153,6 +153,7 @@ async function buildDocs() {
 async function buildAll() {
   await buildWorklet('peak-sample');
   await buildWorklet('true-peak');
+  await buildWorklet('iec-I');
   await buildMain();
   await buildDocs();
 }
@@ -177,6 +178,8 @@ async function localDev() {
       buildWorklet('peak-sample');
     } else if (filePath.includes('true-peak') && filePath.endsWith('.ts')) {
       buildWorklet('true-peak');
+    } else if (filePath.includes('iec-I') && filePath.endsWith('.ts')) {
+      buildWorklet('iec-I');
     } else if (filePath.startsWith('examples/')) {
       buildDocs();
     } else {

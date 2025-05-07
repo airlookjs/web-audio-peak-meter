@@ -10,7 +10,13 @@ import {
 import { dbFromFloat } from './utils';
 import peakSampleProcessor from './peak-sample-processor.txt';
 import truePeakProcessor from './true-peak-processor.txt';
+import iecIProcessor from './iec-I-processor.txt';
 
+const audioMeterStandards = new Map<string, string>([
+  ['peak-sample', peakSampleProcessor],
+  ['true-peak', truePeakProcessor],
+  ['iec-I', iecIProcessor],
+]);
 export class WebAudioPeakMeter {
   channelCount: number;
   srcNode: AudioNode;
@@ -53,7 +59,8 @@ export class WebAudioPeakMeter {
       });
     } catch (err) {
       const workletString =
-        audioMeterStandard === 'true-peak' ? truePeakProcessor : peakSampleProcessor;
+        audioMeterStandards.get(audioMeterStandard) ||
+        peakSampleProcessor; // Fallback to peak-sample if the standard is not recognized
       const blob = new Blob([workletString], { type: 'application/javascript' });
       const objectURL = URL.createObjectURL(blob);
       await this.srcNode.context.audioWorklet.addModule(objectURL);
