@@ -36,7 +36,9 @@ class IecIProcessor extends AudioWorkletProcessor {
         }
       }
     }
-    const maxes = iecIvalues(input, this.channelStates, this.attackFilterCoefficient1, this.attackFilterCoefficient2, this.releaseFilterCoefficient);
+    const maxes = iecIvalues(input, this.channelStates, this.attackFilterCoefficient1, this.attackFilterCoefficient2, this.releaseFilterCoefficient)
+    .map((v) => v * this.gainFactor)
+    ;
     this.port.postMessage({type: 'peaks', peaks: maxes});
     return true;
   }

@@ -15,7 +15,7 @@
 <audio id="the-audio" preload="metadata" crossorigin="anonymous" controls="controls">
   <source src="https://assets.rpy.xyz/testmedia/semper_fidelis.mp3" type="audio/mpeg" />
 </audio>
-<div id="peak-meter" style="height: 80px"></div>
+<div id="peak-meter" style="height: 800px"></div>
 
 <h2>HTML code</h2>
 <pre class="code-block"><code>&lt;p&gt;The web audio API context is &lt;span id=&quot;ctx-status&quot;&gt;loading&lt;/span&gt;. &lt;button id=&quot;ctx-button&quot;&gt;Loading&lt;/button&gt;&lt;/p&gt;
@@ -23,7 +23,7 @@
 &lt;audio id=&quot;the-audio&quot; preload=&quot;metadata&quot; crossorigin=&quot;anonymous&quot; controls=&quot;controls&quot;&gt;
   &lt;source src=&quot;https://assets.rpy.xyz/testmedia/semper_fidelis.mp3&quot; type=&quot;audio/mpeg&quot; /&gt;
 &lt;/audio&gt;
-&lt;div id=&quot;peak-meter&quot; style=&quot;height: 80px&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;peak-meter&quot; style=&quot;height: 800px&quot;&gt;&lt;/div&gt;
 </code></pre>
 <h2>Javascript code</h2>
 <pre class="code-block"><code>const audioCtx = new AudioContext();
@@ -55,7 +55,7 @@ buttonElement.addEventListener(&#039;click&#039;, () =&gt; {
   }
 });
 
-const test = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, meterElement, {audioMeterStandard:&#039;iec-I&#039;});
+const test = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, meterElement, {audioMeterStandard:&#039;iec-I&#039;, scale: &#039;nordic&#039;, vertical: true });
 </code></pre>
 <script src="/web-audio-peak-meter/web-audio-peak-meter-3.1.0.min.js"></script>
 <script>
@@ -88,7 +88,7 @@ buttonElement.addEventListener('click', () => {
   }
 });
 
-const test = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, meterElement, {audioMeterStandard:'iec-I'});
+const test = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, meterElement, {audioMeterStandard:'iec-I', scale: 'nordic', vertical: true });
 
 </script>
 </body>

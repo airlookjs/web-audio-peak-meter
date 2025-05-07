@@ -27,4 +27,4 @@ buttonElement.addEventListener('click', () => {
   }
 });
 
-const test = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, meterElement, {audioMeterStandard:'iec-I'});
+const test = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, meterElement, {audioMeterStandard:'iec-I', scale: 'nordic', vertical: true });

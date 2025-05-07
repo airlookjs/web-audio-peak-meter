@@ -13,19 +13,21 @@
 <p>The web audio API context is <span id="ctx-status">loading</span>. <button id="ctx-button">Loading</button></p>
 <div class="demo-video">
   <video controls id="the-video" crossorigin="anonymous" style="width: 100%;">
-    <source src="https://assets.rpy.xyz/testmedia/hoops.mp4" type="video/mp4">
+    <!-- <source src="https://assets.rpy.xyz/testmedia/hoops.mp4" type="video/mp4"> -->
+    <source src="http://localhost/api/storage/agis/Input/Video/Browser-preview/4_stereo tone 1kHz -18dBFS 48k_16x9.mp4" type="video/mp4">
     Sorry, your browser doesn't support embedded videos.
   </video>
-  <div id="peak-meter" style="height: 72px"></div>
+  <div id="peak-meter" style="height: 800px"></div>
 </div>
 <h2>HTML code</h2>
 <pre class="code-block"><code>&lt;p&gt;The web audio API context is &lt;span id=&quot;ctx-status&quot;&gt;loading&lt;/span&gt;. &lt;button id=&quot;ctx-button&quot;&gt;Loading&lt;/button&gt;&lt;/p&gt;
 &lt;div class=&quot;demo-video&quot;&gt;
   &lt;video controls id=&quot;the-video&quot; crossorigin=&quot;anonymous&quot; style=&quot;width: 100%;&quot;&gt;
-    &lt;source src=&quot;https://assets.rpy.xyz/testmedia/hoops.mp4&quot; type=&quot;video/mp4&quot;&gt;
+    &lt;!-- &lt;source src=&quot;https://assets.rpy.xyz/testmedia/hoops.mp4&quot; type=&quot;video/mp4&quot;&gt; --&gt;
+    &lt;source src=&quot;http://localhost/api/storage/agis/Input/Video/Browser-preview/4_stereo tone 1kHz -18dBFS 48k_16x9.mp4&quot; type=&quot;video/mp4&quot;&gt;
     Sorry, your browser doesn&#039;t support embedded videos.
   &lt;/video&gt;
-  &lt;div id=&quot;peak-meter&quot; style=&quot;height: 72px&quot;&gt;&lt;/div&gt;
+  &lt;div id=&quot;peak-meter&quot; style=&quot;height: 800px&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 <h2>Javascript code</h2>
 <pre class="code-block"><code>const audioCtx = new AudioContext();
@@ -56,7 +58,7 @@ const videoElement = document.getElementById(&#039;the-video&#039;);
 const meterElement = document.getElementById(&#039;peak-meter&#039;);
 const sourceNode = audioCtx.createMediaElementSource(videoElement);
 sourceNode.connect(audioCtx.destination);
-const test = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, meterElement);
+const test = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, meterElement, {audioMeterStandard:&#039;iec-I&#039;, scale: &#039;nordic&#039;, vertical: true });
 </code></pre>
 <script src="/web-audio-peak-meter/web-audio-peak-meter-3.1.0.min.js"></script>
 <script>
@@ -88,7 +90,7 @@ const videoElement = document.getElementById('the-video');
 const meterElement = document.getElementById('peak-meter');
 const sourceNode = audioCtx.createMediaElementSource(videoElement);
 sourceNode.connect(audioCtx.destination);
-const test = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, meterElement);
+const test = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, meterElement, {audioMeterStandard:'iec-I', scale: 'nordic', vertical: true });
 
 </script>
 </body>
